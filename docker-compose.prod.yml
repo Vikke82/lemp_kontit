@@ -14,7 +14,7 @@ services:
       retries: 20
 
   backend:
-    image: ${DOCKERHUB_USERNAME}/lemp-backend:1.0.0
+    image: ${DOCKERHUB_USERNAME}/lemp-backend:latest
     environment:
       DB_HOST: db
       DB_USER: ${DB_USER}
@@ -25,7 +25,7 @@ services:
         condition: service_healthy
 
   frontend:
-    image: ${DOCKERHUB_USERNAME}/lemp-frontend:1.0.0
+    image: ${DOCKERHUB_USERNAME}/lemp-frontend:latest
     depends_on:
       - backend
     ports:
