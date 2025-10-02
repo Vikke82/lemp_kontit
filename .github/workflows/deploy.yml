@@ -112,6 +112,7 @@ jobs:
               docker compose down -v
             else
               docker compose down
+            fi
  
             docker compose pull
             docker compose up -d
