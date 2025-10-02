@@ -56,6 +56,16 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v4
 
+        - name: Ensure target directory exists on VM
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USER }}
+            key: ${{ secrets.SSH_KEY }}
+            port: 22
+            script: |
+              mkdir -p /opt/lemp/db/init/
+
         - name: Copy init.sql to VM
           uses: appleboy/scp-action@v0.1.4
           with:
