@@ -64,7 +64,8 @@ jobs:
             key: ${{ secrets.SSH_KEY }}
             port: 22
             script: |
-              mkdir -p /opt/lemp/db/init/
+              cd /
+              sudo mkdir -p /opt/lemp/db/init/
 
         - name: Copy init.sql to VM
           uses: appleboy/scp-action@v0.1.4
