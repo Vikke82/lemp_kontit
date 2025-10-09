@@ -13,7 +13,7 @@ class BasicTests(unittest.TestCase):
     
     def test_clock(self):
         response = self.app.get('/api/time')
-        #self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         #self.assertIn(b'time', response.data)
         print(response.data)
 
