@@ -12,7 +12,7 @@ DB_NAME = os.getenv('DB_NAME', 'appdb')
 
 @app.get('/api/health')
 def health():
-    return {'status': 'ok'}
+    return jsonify(message={'status': 'ok'})
 
 @app.get('/api/time')
 def time():
@@ -28,7 +28,7 @@ def time():
     cur.execute("SELECT NOW()")
     row = cur.fetchone()
     cur.close(); conn.close()
-    return {'time': row[0]}
+    return jsonify(message={'time': row[0]})
 
 @app.get('/api')
 def index():
