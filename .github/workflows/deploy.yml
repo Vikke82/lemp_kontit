@@ -100,8 +100,7 @@ jobs:
             target: /opt/lemp/db/init/
             strip_components: 2
 
-        - name: Ensure read permissions for docker-compose.prod.yml
-          run: sudo chmod 644 docker-compose.prod.yml
+        
 
         - name: Copy docker-compose.prod.yml to VM
           uses: appleboy/scp-action@v0.1.4
@@ -111,7 +110,17 @@ jobs:
             key: ${{ secrets.SSH_KEY }}
             port: 22
             source: docker-compose.prod.yml
-            target: /opt/lemp/
+            target: /tmp/
+
+        - name: Move docker-compose.prod.yml to /opt/lemp/ on VM
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USER }}
+            key: ${{ secrets.SSH_KEY }}
+            port: 22
+            script: |
+              sudo mv /tmp/docker-compose.prod.yml /opt/lemp/
             
 
   deploy:
