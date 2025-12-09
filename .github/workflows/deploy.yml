@@ -108,7 +108,7 @@ jobs:
             key: ${{ secrets.SSH_KEY }}
             port: 22
             source: docker-compose.prod.yml
-            target: /opt/lemp/docker-compose.yml
+            target: /opt/lemp/
             
 
   deploy:
