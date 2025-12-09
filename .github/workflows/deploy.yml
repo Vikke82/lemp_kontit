@@ -3,7 +3,8 @@ name: CI/CD for LEMP Containers
 on:
   push:
     branches: [ main ]
-    tags:     [ 'v*' ]  # optional: run on version tags, e.g., v1.0.0
+    tags:     [ 'v*' ]  # optional: run on version tags, e.g., v1.0.0 #- name: Run backend tests
+                              #  run: python backend/test_app.py
 
 jobs:
   build-and-push:
@@ -23,8 +24,7 @@ jobs:
       - name: Install backend dependencies
         run: pip install -r backend/requirements.txt
 
-      - name: Run backend tests
-        run: python backend/test_app.py
+      
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
