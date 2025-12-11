@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 import os
 import mysql.connector
 
-#flask app instance update
+#flask app instance update joo
 app = Flask(__name__)
 
 DB_HOST = os.getenv('DB_HOST', 'db')
