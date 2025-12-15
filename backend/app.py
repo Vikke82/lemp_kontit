@@ -28,7 +28,7 @@ def time():
     cur.execute("SELECT NOW()")
     row = cur.fetchone()
     cur.close(); conn.close()
-    return jsonify(message={'time': row[0]})
+    return jsonify(row)
 
 @app.get('/api')
 def index():
