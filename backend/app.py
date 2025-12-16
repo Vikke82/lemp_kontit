@@ -17,7 +17,7 @@ def health():
 @app.get('/api/time')
 def time():
     # Placeholder for actual time fetching logic
-    #get server time from db
+    #get server time from db 
     conn = mysql.connector.connect(
         host=DB_HOST,
         user=DB_USER,
