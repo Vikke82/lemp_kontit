@@ -59,11 +59,22 @@ The GitHub Actions workflow (`.github/workflows/deploy.yml`) does the following:
       docker pull ${{ secrets.DOCKERHUB_USERNAME }}/lemp-backend:latest
       docker-compose -f docker-compose.prod.yml up -d --build
 ```
+## Copy .env file content into VM
+
+# Copy this to .env and adjust values
+DOCKERHUB_USERNAME=your_user_name
+MYSQL_ROOT_PASSWORD=supersecretroot
+DB_HOST=db
+DB_USER=appuser
+DB_PASSWORD=changeme
+DB_NAME=appdb
 
 ## Notes
 - Never commit your private SSH key or Docker credentials to the repository.
 - Update the workflow as needed for your project structure.
 - Ensure your server has Docker and Docker Compose installed.
+
+
 
 ---
 
